@@ -1,0 +1,153 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #fffaf5, #f5eaf0, #f8f0e6);
+    font-family: 'Poppins', sans-serif;
+    color: #55464d;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    padding: 28px 15px;
+    text-align: center;
+}
+
+.logo {
+    color: #a17a68;
+    font-size: 13px;
+    letter-spacing: 4px;
+    font-weight: 600;
+}
+
+.contenedor {
+    width: 90%;
+    max-width: 680px;
+    margin: auto;
+    text-align: center;
+    padding: 35px 0;
+}
+
+.decoracion {
+    color: #c5a16b;
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.subtitulo {
+    color: #b08c79;
+    font-size: 11px;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(42px, 8vw, 65px);
+    line-height: 1.15;
+    color: #65515b;
+    margin-bottom: 22px;
+}
+
+h1 span {
+    color: #b48a9c;
+    font-style: italic;
+}
+
+.introduccion {
+    font-size: 14px;
+    line-height: 1.9;
+    color: #82747a;
+    margin-bottom: 35px;
+}
+
+.tarjeta {
+    background: rgba(255, 255, 255, 0.85);
+    padding: 40px 30px;
+    border-radius: 22px;
+    border: 1px solid #ead8ce;
+    box-shadow: 0 12px 35px rgba(111, 77, 91, 0.09);
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.comilla {
+    font-family: Georgia, serif;
+    font-size: 65px;
+    color: #c5a16b;
+    height: 55px;
+}
+
+#texto-versiculo {
+    font-family: 'Playfair Display', serif;
+    font-size: 23px;
+    line-height: 1.7;
+    color: #66505a;
+    margin: 15px 0;
+}
+
+.linea {
+    width: 55px;
+    height: 2px;
+    background: #c5a16b;
+    margin: 20px auto;
+}
+
+#referencia {
+    color: #a17a68;
+    font-size: 13px;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+button {
+    background: linear-gradient(135deg, #b48a9c, #947080);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 16px 32px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 7px 18px rgba(148, 112, 128, 0.25);
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 22px rgba(148, 112, 128, 0.35);
+}
+
+.mensaje-final {
+    margin-top: 35px;
+    color: #a17a68;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 17px;
+}
+
+footer {
+    text-align: center;
+    padding: 25px 12px;
+    font-size: 11px;
+    color: #9b858b;
+}
+
+@media (max-width: 480px) {
+    .tarjeta {
+        padding: 30px 20px;
+    }
+
+    #texto-versiculo {
+        font-size: 20px;
+    }
+
+    .subtitulo {
+        letter-spacing: 2px;
+    }
+}

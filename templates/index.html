@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Una palabra para tu corazón</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">✧ CONECTATE CON DIOS ✧</div>
+    </header>
+
+    <main class="contenedor">
+
+        <div class="decoracion">✦</div>
+
+        <p class="subtitulo">UN MENSAJE ESPECIAL PARA TI</p>
+
+        <h1>Una palabra<br>
+            <span>para tu corazón</span>
+        </h1>
+
+        <p class="introduccion">
+            No llegaste aquí por casualidad.
+            Permite que hoy la Palabra de Dios
+            ilumine tu camino.
+        </p>
+
+        <section class="tarjeta">
+
+            <div class="comilla">“</div>
+
+            <p id="texto-versiculo">
+                {{ versiculo.texto }}
+            </p>
+
+            <div class="linea"></div>
+
+            <p id="referencia">
+                {{ versiculo.referencia }}
+            </p>
+
+        </section>
+
+        <button onclick="recibirVersiculo()">
+            ✨ Recibir otra palabra
+        </button>
+
+        <p class="mensaje-final">
+            Dios te ama más de lo que imaginas.
+        </p>
+
+    </main>
+
+    <footer>
+        Con amor, compartiendo la Palabra de Dios ♡
+    </footer>
+
+    <script>
+        async function recibirVersiculo() {
+            const respuesta = await fetch('/otro-versiculo');
+            const datos = await respuesta.json();
+
+            document.getElementById('texto-versiculo').textContent =
+                datos.texto;
+
+            document.getElementById('referencia').textContent =
+                datos.referencia;
+        }
+    </script>
+
+</body>
+</html>
