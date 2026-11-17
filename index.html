@@ -6,13 +6,14 @@
     <title>Una palabra para tu corazón</title>
 
     <link rel="stylesheet" href="static/style.css">
+
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
     <header>
-        <div class="logo">✧ CONECTATE CON DIOS ✧</div>
+        <div class="logo">✧ CONÉCTATE CON DIOS ✧</div>
     </header>
 
     <main class="contenedor">
@@ -36,14 +37,12 @@
             <div class="comilla">“</div>
 
             <p id="texto-versiculo">
-                {{ versiculo.texto }}
+                Cargando una palabra...
             </p>
 
             <div class="linea"></div>
 
-            <p id="referencia">
-                {{ versiculo.referencia }}
-            </p>
+            <p id="referencia"></p>
 
         </section>
 
@@ -62,9 +61,42 @@
     </footer>
 
     <script>
-        async function recibirVersiculo() {
-            const respuesta = await fetch('/otro-versiculo');
-            const datos = await respuesta.json();
+        let versiculos = [];
+        let ultimoIndice = -1;
+
+        async function cargarVersiculos() {
+            try {
+                const respuesta = await fetch('versiculos.json');
+
+                if (!respuesta.ok) {
+                    throw new Error('No se pudo cargar el archivo');
+                }
+
+                versiculos = await respuesta.json();
+                recibirVersiculo();
+
+            } catch (error) {
+                document.getElementById('texto-versiculo').textContent =
+                    'No se pudieron cargar los versículos. Intenta actualizar la página.';
+                console.error(error);
+            }
+        }
+
+        function recibirVersiculo() {
+            if (versiculos.length === 0) return;
+
+            let indice;
+
+            do {
+                indice = Math.floor(Math.random() * versiculos.length);
+            } while (
+                versiculos.length > 1 &&
+                indice === ultimoIndice
+            );
+
+            ultimoIndice = indice;
+
+            const datos = versiculos[indice];
 
             document.getElementById('texto-versiculo').textContent =
                 datos.texto;
@@ -72,6 +104,8 @@
             document.getElementById('referencia').textContent =
                 datos.referencia;
         }
+
+        cargarVersiculos();
     </script>
 
 </body>
