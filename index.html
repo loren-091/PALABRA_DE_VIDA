@@ -66,8 +66,7 @@
 
         async function cargarVersiculos() {
             try {
-                const respuesta = await fetch('https://raw.githubusercontent.com/loren-091/PALABRA_DE_VIDA/main/versiculos.json');
-
+                const respuesta = await fetch('https://raw.githubusercontent.com/loren-091/PALABRA_DE_VIDA/refs/heads/main/versiculos.json');
                 if (!respuesta.ok) {
                     throw new Error('No se pudo cargar el archivo');
                 }
